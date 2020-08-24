@@ -1,0 +1,31 @@
+/* =======================HOME=============================== */
+
+p {
+    text-align: center;
+}
+
+.content-home {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.content-home a {
+    display: inline-block;
+    border: 2px solid #e3dfc8;
+    padding: 3%;
+    margin: 30px 5px;
+    border-radius: 5px;
+    opacity: 0.8;
+    font-weight: bold;
+}
+
+.content-home a:hover {
+    opacity: 1;
+}
+
+.content-home img {
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+}

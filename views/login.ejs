@@ -1,0 +1,25 @@
+<%- include('header') -%>
+    <%- include('part') -%>
+
+        <div class="container">
+            <form id="form-log">
+                <div class="form-control">
+                    <label for="email">Email</label>
+                    <input type="text" id="email-log" class="form-control.error" placeholder="Nhập email" />
+                    <small>Error Here</small>
+                </div>
+                <div class="form-control">
+                    <label for="password">Mật Khẩu</label>
+                    <input type="password" id="password-log" placeholder="Nhập mật khẩu" />
+                    <small>Error Here</small>
+                </div>
+                <div class="form-control">
+                    <p class="result">Result</p>
+                </div>
+                <button type="submit">Đăng Nhập</button>
+            </form>
+        </div>
+        <script src="js/login.js"></script>
+        <link rel="stylesheet" href="css/form.css" />
+
+        <%- include("footer") -%>

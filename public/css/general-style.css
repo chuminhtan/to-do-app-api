@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap&family=Varela&display=swap&family=Berkshire+Swash&display=swap&family=Lobster&display=swap&&family=Monoton');
+:root {
+    --primary-color: #e67300;
+    --second-color: #27A005;
+    --color-success: #47d147;
+    --color-error: #e74c3c;
+    --color-text: #e3dfc8;
+    --color-line: #eaeae6;
+    --color-gray: #9a9898;
+}
+
+* {
+    font-family: Helvetica;
+}
+
+body {
+    background-color: #E4E9FD;
+    font-family: 'helvetica neue';
+    background-image: url(../images/bg.jpg);
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h3 {
+    color: var(--color-text);
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    letter-spacing: 6px;
+    font-size: 40px;
+}
+
+
+/* ==========================HEADER===================== */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    color: #eeeeee;
+}
+
+header .banner {
+    font-family: 'Monoton', cursive;
+}
+
+header .setting {
+    padding: 5px 10px;
+    background: #bf4545;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 11px;
+}
+
+header .setting:hover {
+    opacity: 1;
+}
+
+
+/* -=============================NAVIGATION==========================*/
+
+nav {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: start;
+}
+
+nav li {
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 2px 10px;
+    margin: 5px 10px 0 0;
+}
+
+nav li a {
+    color: var(--color-text);
+    font-weight: bold;
+}
+
+nav p {
+    color: greenyellow;
+    margin: 20px 0;
+    padding: 0;
+}
+
+
+/* =========================FOOTER====================== */
+
+footer {
+    font-size: 11px;
+    margin: 180px auto 0;
+    color: white;
+    text-align: center;
+}

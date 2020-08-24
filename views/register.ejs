@@ -1,0 +1,35 @@
+<%- include('header') %>
+    <%- include('part') -%>
+
+        <div class="container">
+            <form id="form-reg">
+                <div class="form-control">
+                    <label for="username">Tên</label>
+                    <input type="text" id="name-reg" placeholder="Nhập tên" />
+                    <small>Error Here</small>
+                </div>
+                <div class="form-control">
+                    <label for="email">Email</label>
+                    <input type="text" id="email-reg" class="" placeholder="Nhập email" />
+                    <small>Error Here</small>
+                </div>
+                <div class="form-control">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password-reg" placeholder="Nhập mật khẩu" />
+                    <small>Error Here</small>
+                </div>
+                <div class="form-control">
+                    <label for="password2">Xác nhận mật khẩu</label>
+                    <input type="password" id="password2-reg" placeholder="Nhập lại mật khẩu" />
+                    <small>Error Here</small>
+                </div>
+                <div class="form-control">
+                    <p class="result">Result</p>
+                </div>
+                <button type="submit">Đăng Kí</button>
+            </form>
+        </div>
+        <script src="js/register.js"></script>
+        <link rel="stylesheet" href="css/form.css" />
+
+        <%- include("footer") -%>

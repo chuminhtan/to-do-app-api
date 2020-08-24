@@ -1,0 +1,23 @@
+<%- include("header") -%>
+    <%- include("nav") -%>
+        <%- include('part') -%>
+
+            <div class="box">
+                <div id="task-list">
+                    <!-- <div class="one-item">
+                        <div class="item">
+                            <p class="description"></p>
+                            <input type="checkbox" id="checkbox" value="" />
+                        </div>
+                        <pre class="time">123456</pre>
+                    </div> -->
+                </div>
+                <div id="add">
+                    <input type="text" id="inputItem" placeholder="Nhập Công Việc" autocomplete="off" />
+                    <button type="submit" id="addBtn">+</button>
+                </div>
+            </div>
+            <span id="message">Message</span>
+            <link rel="stylesheet" href="css/list.css">
+            <script src="js/list.js"></script>
+            <%- include("footer") -%>

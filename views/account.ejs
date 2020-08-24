@@ -1,0 +1,49 @@
+<%- include('header') %>
+    <%- include("nav") -%>
+        <%- include('part') -%>
+            <div class="container">
+                <form id="form-info">
+                    <h5>Đổi Thông Tin Cá Nhân</h5>
+                    <div class="form-control">
+                        <label for="username">Tên</label>
+                        <input type="text" id="name" placeholder="Nhập tên" />
+                        <small>Error Here</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" placeholder="Nhập email" />
+                        <small>Error Here</small>
+                    </div>
+                    <div class="form-control">
+                        <p class="result">Result</p>
+                    </div>
+                    <button type="submit" id="btn-update-info">Cập Nhật Thông Tin</button>
+                </form>
+
+                <form id="form-password">
+                    <h5>Đổi Mật Khẩu</h5>
+                    <div class="form-control">
+                        <label for="password-old">Mật Khẩu Hiện Tại</label>
+                        <input type="password" id="password-old" placeholder="Nhập mật khẩu hiện tại" />
+                        <small>Error Here</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="password-new">Mật Khẩu Mới</label>
+                        <input type="password" id="password-new" placeholder="Nhập mật khẩu mới" />
+                        <small>Error Here</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="password-new2">Nhập Lại Mật Khẩu Mới</label>
+                        <input type="password" id="password-new2" placeholder="Nhập lại mật khẩu mới" />
+                        <small>Error Here</small>
+                    </div>
+                    <div class="form-control">
+                        <p class="result">Result</p>
+                    </div>
+                    <button type="submit" id="btn-update-password">Cập Nhật Mật Khẩu</button>
+                </form>
+            </div>
+            <script src="js/account.js"></script>
+            <link rel="stylesheet" href="css/form.css" />
+
+            <%- include("footer") -%>
