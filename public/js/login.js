@@ -24,7 +24,6 @@ const UserController = (() => {
             }
 
             const res = await fetch('/users/login', requestOptions)
-
             if (res.status !== 200) {
                 return 'error'
             }
@@ -117,7 +116,7 @@ const UserAppController = ((UserCtrl, UICtrl) => {
 
         // Validate value input
         user = UICtrl.validateReg(DOMLog) 
-
+        console.log(user);
         if (user === null) {
             return 
         }

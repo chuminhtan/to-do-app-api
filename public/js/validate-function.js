@@ -1,4 +1,4 @@
-       // Show error message  = LOGIN AND REGISTER
+       // Show error message  : LOGIN - REGISTER - ACCOUNT
        const showError = function(input, message) {
         const formControl = input.parentElement 
         formControl.className = 'form-control error' 
@@ -7,12 +7,13 @@
         small.innerText = message 
     }
 
-    // Show success message : LOGIN AND REGISTER
+    // Show success message : LOGIN - REGISTER - ACCOUNT
     const showSuccess = function(input) {
         const formControl = input.parentElement 
         formControl.className = 'form-control success' 
     }
 
+    // Show result message : LOGIN - REGISTER - ACCOUNT
     const showResult = function(msg) {
 
         const p = document.querySelector('.result') 
@@ -21,7 +22,7 @@
 
         setTimeout(() => {
             p.classList.remove('message') 
-        }, 5000)
+        }, 10000)
     }
 
     // Validate email
@@ -79,7 +80,6 @@
             }
         }) 
 
-        console.log(emptyArr) 
         if (emptyArr.length > 0) {
 
             emptyArr.forEach((input) => {

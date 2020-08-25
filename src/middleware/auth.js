@@ -19,7 +19,7 @@
          next();
 
      } catch (e) {
-         res.redirect('/');
+         res.send(e)
      }
  }
 

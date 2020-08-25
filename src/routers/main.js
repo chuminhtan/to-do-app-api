@@ -1,9 +1,9 @@
 const express = require('express')
 const router = new express.Router()
 const auth = require('../middleware/auth')
-const checkAuth = require('../middleware/checkAuth')
+const {checkLogin} = require('../middleware/cookies')
 
-router.get('/', checkAuth, async(req, res) => {
+router.get('/', checkLogin, async(req, res) => {
 
     res.render('home', {
         title: 'To-do App',
@@ -24,7 +24,7 @@ router.get('/register', (req, res) => {
     });
 });
 
-router.get('/login', checkAuth, async(req, res) => {
+router.get('/login', checkLogin, async(req, res) => {
 
     res.render('login', {
         title: 'Đăng Nhập',
@@ -55,16 +55,17 @@ router.get('/account', auth, (req, res) => {
     });
 })
 
-
-router.get('/forgot', (req, res) => {
-    res.render('forgot', {
-        title: 'Recovery',
-        part: 'Coming Soon',
+router.get('/forgotPassword', (req, res) => {
+    res.render('forgotPassword', {
+        title: 'Quên Mật Khẩu',
+        part: 'Gửi Yêu Cầu Reset Mật Khẩu',
         user: {
-            name: `Xin Chào`,
+            name: `Trang Chủ`,
         }
     })
 })
+
+
 router.get('*', (req, res) => {
     res.render('404', {
         title: '404-Page not found',
