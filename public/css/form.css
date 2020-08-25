@@ -87,3 +87,11 @@
     color: var(--color-gray);
     opacity: 0.9;
 }
+
+#deleteAccount{
+    background-color: #e74c3c;
+}
+
+#form-delete p {
+    font-size: 11px;
+}

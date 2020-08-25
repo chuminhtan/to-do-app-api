@@ -6,6 +6,26 @@ const UserController = (() => {
 
     return {
 
+        // Delete User
+        delete: async() => {
+            const myHeaders = new Headers()  
+            myHeaders.append("Content-Type", "application/json")  
+
+            const requestOptions = {
+                method: 'DELETE',
+                headers: myHeaders,
+                redirect: 'follow',
+            }  
+
+            const res = await fetch("users/me", requestOptions)
+
+            if(res.status !== 200){
+                return 'error'
+            }
+
+            return 'success'
+        },
+
         // Logout User
         logout: async() => {
 
@@ -104,14 +124,16 @@ const UIController = (() => {
 
     const DOMstrings = {
         setting: '.setting',
-        formInfo: 'form-info',
-        formPassword: 'form-password',
+        formDelete: '#form-delete',
+        formInfo: '#form-info',
+        formPassword: '#form-password',
         name: 'name',
         email: 'email',
         passwordOld: 'password-old',
         passwordNew: 'password-new',
         passwordNew2: 'password-new2',
-        result: '.result'
+        result: '.result',
+        confirm: '#confirm'
     }  
 
     // RETURN
@@ -188,7 +210,6 @@ const UIController = (() => {
         },
 
         // Get and check password
-
         getPassword: function() {
 
             const passwordOld = document.getElementById(DOMstrings.passwordOld)  
@@ -210,6 +231,18 @@ const UIController = (() => {
                 passwordOld: passwordOld.value,
                 passwordNew: passwordNew.value
             }
+        },
+
+        // Check value confirm
+        checkValueConfirm: function() {
+
+            const inputConfirm = document.querySelector(DOMstrings.confirm)
+        
+            if( inputConfirm.value !== 'DELETE') {
+                return false
+            }
+
+            return true
         }
     }
 })()
@@ -228,10 +261,34 @@ const UserAppController = ((UserCtrl, UICtrl) => {
     // Setup Event
     const setupEventListeners = () => {
         document.querySelector(DOM.setting).addEventListener('click', logout)  
-        document.getElementById(DOM.formInfo).addEventListener('submit', updateInfo)  
-        document.getElementById(DOM.formPassword).addEventListener('submit', updatePassword)  
+        document.querySelector(DOM.formInfo).addEventListener('submit', updateInfo)  
+        document.querySelector(DOM.formPassword).addEventListener('submit', updatePassword)
+        document.querySelector(DOM.formDelete).addEventListener('submit', deleteAccount)
     }
 
+    // Delete Account
+    const deleteAccount = async(e) => {
+        e.preventDefault()
+
+        // Check value confirm
+        const result = UICtrl.checkValueConfirm()
+        
+        if(result === false) {
+            return showAccountResult(DOM.formDelete,'Mã Xác Thực Không Chính Xác')
+        }
+
+
+        const resultDelete = await UserCtrl.delete()
+
+        if(resultDelete === 'error') {
+            return showAccountResult(DOM.formDelete,'Lỗi: Xóa không thành công')
+        }
+
+        showAccountResult(DOM.formDelete,'Xóa Tài Khoản Thành Công')
+        setTimeout(()=> {
+            location.assign('/')
+        }, 2000)
+    }
     // Logout
 
     const logout = async() => {
@@ -277,7 +334,7 @@ const UserAppController = ((UserCtrl, UICtrl) => {
         newInfo = await UserCtrl.updateInfo(info)  
 
         if (newInfo == null) {
-            showResult('Cập nhật Email không thành công , Email đã tồn tại')  
+            showAccountResult(DOM.formInfo,'Cập nhật Email không thành công , Email đã tồn tại')  
 
             setTimeout(() => {
                 location.assign('/account')
@@ -286,7 +343,7 @@ const UserAppController = ((UserCtrl, UICtrl) => {
             return  
         }
 
-        showResult('Cập nhật thành công')  
+        showAccountResult(DOM.formInfo,'Cập nhật thành công')  
 
         // Reload page
         setTimeout(() => {
@@ -312,10 +369,10 @@ const UserAppController = ((UserCtrl, UICtrl) => {
         user = await UserCtrl.updatePassword(objPassword)  
 
         if (user == null) {
-            return showResult('password', 'Mật khẩu hiện tại không chính xác')  
+            return showAccountResult(DOM.formPassword, 'Mật khẩu hiện tại không chính xác')  
         }
 
-        showResult('password', 'Cập nhật mật khẩu thành công')  
+        showAccountResult(DOM.formPassword, 'Cập nhật mật khẩu thành công')  
 
         setTimeout(() => {
             location.assign('/account')  

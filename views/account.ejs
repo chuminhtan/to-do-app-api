@@ -42,9 +42,23 @@
                         <p class="result">Result</p>
                     </div>
                     <button type="submit" id="btn-update-password">Cập Nhật Mật Khẩu</button>
+                    
                 </form>
+                <form id="form-delete">
+                    <h5>Xóa Tài Khoản</h5>
+                    <p>Xin lưu ý: tài khoản sẽ bị xóa vĩnh viễn.</p>
+                    <p>Để tiếp tục hãy điền vào mã <b>DELETE</b> và nhấn nút Xóa Tài Khoản</p>
+                    <div class="form-control">
+                        <input type="text" id="confirm" placeholder="Nhập mã xác nhận" />
+                        <small>Error Here</small>
+                    </div>
+                    <div class="form-control">
+                        <p class="result">Result</p>
+                    </div>
+                    <button id="deleteAccount">Xóa Tài Khoản</button>
+                </form>
+
             </div>
             <script src="js/account.js"></script>
-            
             <script src="js/validate-function.js"></script>
             <%- include("footer") -%>

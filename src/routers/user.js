@@ -64,17 +64,17 @@ router.post('/users/logout', auth, async (req, res) => {
 })
 
 // Logout all - POST
-router.post('/users/logoutAll', auth, async (req, res) => {
-    try {
-        req.user.tokens = []
-        await req.user.save()
+// router.post('/users/logoutAll', auth, async (req, res) => {
+//     try {
+//         req.user.tokens = []
+//         await req.user.save()
 
-        res.send()
+//         res.send()
 
-    } catch (e) {
-        res.status(500).send()
-    }
-})
+//     } catch (e) {
+//         res.status(500).send()
+//     }
+// })
 
 // Read user with find - GET
 router.get('/users/me', auth, async (req, res) => {
@@ -164,9 +164,11 @@ router.delete('/users/me', auth, async (req, res) => {
     try {
 
         await req.user.remove()
-        res.send(req.user)
+        res.clearCookie('jwt')
 
+        res.send(req.user)
     } catch (e) {
+        console.log(e)
         res.status(500).send()
     }
 })
@@ -174,7 +176,7 @@ router.delete('/users/me', auth, async (req, res) => {
 // Forgot password
 router.post('/users/forgotPassword', async (req, res) => {
 
-    // 1) Get user based on POSTed email
+    // Get user based on POSTed email
 
     const user = await User.findOne({ email: req.body.email })
 
@@ -183,13 +185,13 @@ router.post('/users/forgotPassword', async (req, res) => {
         return res.status(400).send()
     }
 
-    // 2) Generate the random reset token
+    // Generate the random reset token
     const resetToken = user.createdPasswordResetToken()
 
     console.log('reset: ' + resetToken);
     await user.save()
 
-    // 3) Send it to user's email
+    // Send it to user's email
 
     const resetURL = `${req.protocol}://${req.get('host')}/users/resetPassword/${resetToken}`
 

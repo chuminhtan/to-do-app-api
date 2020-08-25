@@ -13,13 +13,24 @@
         formControl.className = 'form-control success' 
     }
 
-    // Show result message : LOGIN - REGISTER - ACCOUNT
+    // Show result message : LOGIN - REGISTER
     const showResult = function(msg) {
 
         const p = document.querySelector('.result') 
         p.className = 'result message'
         p.innerText = msg
 
+        setTimeout(() => {
+            p.classList.remove('message') 
+        }, 10000)
+    }
+
+    // Show result account : ACCOUNT
+    const showAccountResult = function (idForm, msg) {
+        const form = document.querySelector(idForm)
+        const p = form.querySelector('.result')
+        p.className = 'result message'
+        p.innerText = msg
         setTimeout(() => {
             p.classList.remove('message') 
         }, 10000)
