@@ -11,7 +11,7 @@ router.get('/', checkLogin, async(req, res) => {
         user: {
             name: 'Trang Chủ',
         }
-    });
+    })
 })
 
 router.get('/register', (req, res) => {

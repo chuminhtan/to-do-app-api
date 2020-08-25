@@ -210,6 +210,7 @@ router.post('/users/forgotPassword', async (req, res) => {
 
 })
 
+// Reset Password
 router.get('/users/resetPassword/:tokenReset', async (req, res) => {
 
     // Get user based on the token
@@ -234,6 +235,7 @@ router.get('/users/resetPassword/:tokenReset', async (req, res) => {
     })
 })
 
+// Reset password
 router.patch('/users/changePasswordReset', checkTokenReset, async (req, res) => {
 
     const tokenReset = req.cookies.tokenReset

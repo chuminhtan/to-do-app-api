@@ -4,7 +4,7 @@ const  sendGridAPIKey = process.env.SEND_GRID_API_KEY
 sgMail.setApiKey(sendGridAPIKey)
 
 const sendWelcomeEmail = (email, name) => {
-    console.log(process.env.EMAIL);
+    console.log(process.env.EMAIL)
     sgMail.send({
         to: email,
         from: process.env.EMAIL,
@@ -14,7 +14,7 @@ const sendWelcomeEmail = (email, name) => {
     }).then(()=>{
         console.log('Sended');
     }).catch(error=>{
-        console.log(error.response.body);
+        console.log(error.response.body)
     })
 }
 
