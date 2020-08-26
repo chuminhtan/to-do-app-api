@@ -41,6 +41,7 @@ const UserUIController = (() => {
     const DOMStrings = {
         form: '#form-forgot',
         email: '#email-forgot',
+        setting: '.setting'
     }
 
     return {
@@ -85,6 +86,9 @@ const AppController = ((UserCtrl, UICtrl) => {
     // Setup Event
     const setupEventListeners = () => {
         document.querySelector(DOM.form).addEventListener('submit',requireResetPassword)
+        document.querySelector(DOM.setting).addEventListener('click', () => {
+            location.assign('/') 
+        })
 
     }
 
